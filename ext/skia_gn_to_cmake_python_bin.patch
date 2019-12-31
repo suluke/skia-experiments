@@ -1,0 +1,22 @@
+diff --git a/gn/gn_to_cmake.py b/gn/gn_to_cmake.py
+index 7dbf82c14e..2f784fa685 100755
+--- a/gn/gn_to_cmake.py
++++ b/gn/gn_to_cmake.py
+@@ -255,7 +255,7 @@ def WriteAction(out, target, project, sources, synthetic_dependencies):
+ 
+   script = target.properties['script']
+   arguments = target.properties['args']
+-  out.write('  COMMAND python "')
++  out.write('  COMMAND {} "'.format(sys.executable))
+   out.write(CMakeStringEscape(project.GetAbsolutePath(script)))
+   out.write('"')
+   if arguments:
+@@ -325,7 +325,7 @@ def WriteActionForEach(out, target, project, sources, synthetic_dependencies):
+     script = target.properties['script']
+     # TODO: need to expand {{xxx}} in arguments
+     arguments = target.properties['args']
+-    out.write('  COMMAND python "')
++    out.write('  COMMAND {} "'.format(sys.executable))
+     out.write(CMakeStringEscape(project.GetAbsolutePath(script)))
+     out.write('"')
+     if arguments:

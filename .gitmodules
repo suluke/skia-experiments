@@ -1,0 +1,4 @@
+[submodule "ext/skia"]
+	path = ext/skia
+	url = https://github.com/google/skia.git
+  ignore = dirty
